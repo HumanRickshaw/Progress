@@ -5,7 +5,7 @@ Maryland,MD,"6,177,224","6,180,253",2022-03-15,Yes,Larry Hogan,Republican,"38,00
 Maryland,MD,"6,177,224","6,180,253",2022-03-15,Yes,Larry Hogan,Republican,"38,000","19,000",,State Gov. Website/Press Release, ,
 Tennessee,TN,"6,910,840","7,126,489",2022-03-28,Yes,Bill Lee,Republican,,,,Executive Order/Legislation,House Bill 1916,https://www.capitol.tn.gov//Bills/112/Amend/HA0763.pdf
 Tennessee,TN,"6,910,840","7,126,489",2022-03-28,Yes,Bill Lee,Republican,,,,Media/Other News, ,
-Tennessee,TN,"6,910,840","7,126,489",2022-03-28,Yes,Bill Lee,Republican,,,,State Gov. Website/Press Release,HB 1916,https://wapp.capitol.tn.gov/apps/Billinfo/default.aspx?BillNumber=HB1916&ga=112
+Tennessee,TN,"6,910,840","7,126,489",2022-03-28,Yes,Bill Lee,Republican,,,,State Gov. Website/Press Release,House Bill 1916,https://wapp.capitol.tn.gov/apps/Billinfo/default.aspx?BillNumber=HB1916&ga=112
 Colorado,CO,"5,773,714","5,877,610",2022-04-14,Yes,Jared Polis,Democrat,"99,000","99,000",,Executive Order/Legislation,Executive Order D 2022 015,https://www.colorado.gov/governor/sites/default/files/inline-files/D%202022%20015%20Skills%20Based%20Hiring%20EO.pdf
 Colorado,CO,"5,773,714","5,877,610",2022-04-14,Yes,Jared Polis,Democrat,"99,000","99,000",,Media/Other News,Colorado Department of Labor and Employment Commends Executive Order Focused on Skills-Based Hiring Practices,https://www.markle.org/about-markle/in-the-news/colorado-department-of-labor-and-employment-commends-executive-order-focused-on-skills-based-hiring-practices/
 Colorado,CO,"5,773,714","5,877,610",2022-04-14,Yes,Jared Polis,Democrat,"99,000","99,000",,State Gov. Website/Press Release,Press Release: Colorado Department of Labor and Employment Commends Executive Order Focused on Skills-Based Hiring Practices,https://cdle.colorado.gov/press-releases/press-release-colorado-department-of-labor-and-employment-commends-executive-order
@@ -13,7 +13,7 @@ Colorado,CO,"5,773,714","5,877,610",2022-04-14,Yes,Jared Polis,Democrat,"99,000"
 South Carolina,SC,"5,118,425","5,373,555",2022-06-02,Partial,Henry McMaster,Republican,,,,Executive Order/Legislation, ,
 South Carolina,SC,"5,118,425","5,373,555",2022-06-02,Partial,Henry McMaster,Republican,,,,Media/Other News,South Carolina Considers Removing College Degree Requirements,https://www.governing.com/work/south-carolina-considers-removing-college-degree-requirements
 South Carolina,SC,"5,118,425","5,373,555",2022-06-02,Partial,Henry McMaster,Republican,,,,State Gov. Website/Press Release, ,
-Arizona,AZ,"7,151,502","7,431,344",2022-07-05,Partial,Doug Ducey,Republican,,,,Executive Order/Legislation,HOUSE BILL 2225 ,https://www.azleg.gov/legtext/56leg/1R/bills/HB2225H.pdf
+Arizona,AZ,"7,151,502","7,431,344",2022-07-05,Partial,Doug Ducey,Republican,,,,Executive Order/Legislation,House Bill 2225 ,https://www.azleg.gov/legtext/56leg/1R/bills/HB2225H.pdf
 Arizona,AZ,"7,151,502","7,431,344",2022-07-05,Partial,Doug Ducey,Republican,,,,Media/Other News, ,
 Arizona,AZ,"7,151,502","7,431,344",2022-07-05,Partial,Doug Ducey,Republican,,,,State Gov. Website/Press Release, ,
 Utah,UT,"3,271,616","3,417,734",2022-12-13,Partial,Spencer Cox,Republican,,,,Executive Order/Legislation, ,
@@ -61,13 +61,15 @@ Delaware,DE,"989,948","1,031,890",2024-01-10,Partial,John Carney,Democrat,,,,Sta
 Massachusetts,MA,"7,029,917","7,001,399",2024-01-25,Yes,Maura Healey,Democrat,,,,Executive Order/Legislation,Executive Order No. 627,https://www.mass.gov/doc/skilled-based-eo/download
 Massachusetts,MA,"7,029,917","7,001,399",2024-01-25,Yes,Maura Healey,Democrat,,,,Media/Other News,Governor Healey drops degree requirements from most state job listings,https://archive.is/x94w9
 Massachusetts,MA,"7,029,917","7,001,399",2024-01-25,Yes,Maura Healey,Democrat,,,,State Gov. Website/Press Release,Governor Healey Signs Executive Order Directing State Agencies to Institute Skills-Based Hiring,https://www.mass.gov/news/governor-healey-signs-executive-order-directing-state-agencies-to-institute-skills-based-hiring
-Washington,WA,"7,705,281","7,812,880",2024-02-08,Yes,Jay Inslee,Democrat,,,,Executive Order/Legislation,SUBSTITUTE HOUSE BILL 2216,https://lawfilesext.leg.wa.gov/biennium/2023-24/Pdf/Bills/Session%20Laws/House/2216-S.SL.pdf?q=20240726145917
+Washington,WA,"7,705,281","7,812,880",2024-02-08,Yes,Jay Inslee,Democrat,,,,Executive Order/Legislation,Substitute House Bill 2216,https://lawfilesext.leg.wa.gov/biennium/2023-24/Pdf/Bills/Session%20Laws/House/2216-S.SL.pdf?q=20240726145917
 Washington,WA,"7,705,281","7,812,880",2024-02-08,Yes,Jay Inslee,Democrat,,,,Media/Other News,Eradicating barriers to state employment is on Washington state’s agenda,https://www.washingtonpolicy.org/publications/detail/eradicating-barriers-to-state-employment-is-on-washington-states-agenda
 Hawaii,HI,"1,455,271","1,435,138",2024-02-15,Deferred,Josh Green ,Democrat,,,,Executive Order/Legislation,State Bill 2886,https://www.capitol.hawaii.gov/sessions/session2024/bills/SB2886_.HTM
 Hawaii,HI,"1,455,271","1,435,138",2024-02-15,Deferred,Josh Green ,Democrat,,,,Media/Other News,SB2886 recognizes not all state jobs require a degree,https://www.grassrootinstitute.org/2024/02/sb2886-recognizes-not-all-state-jobs-require-a-degree/
-Hawaii,HI,"1,455,271","1,435,138",2024-02-15,Deferred,Josh Green ,Democrat,,,,State Gov. Website/Press Release,SB2886,https://www.capitol.hawaii.gov/session/measure_indiv.aspx?billtype=SB&billnumber=2886&year=2024
-Washington,WA,"7,705,281","7,812,880",2024-02-15,Yes,Jay Inslee,Democrat,,,,State Gov. Website/Press Release, ,
-Idaho,ID,"1,839,106","1,964,726",2024-03-19,Partial,Brad Little,Republican,,,,Executive Order/Legislation,HOUSE BILL 433,https://legislature.idaho.gov/sessioninfo/2024/legislation/h0433/
+Hawaii,HI,"1,455,271","1,435,138",2024-02-15,Deferred,Josh Green ,Democrat,,,,State Gov. Website/Press Release,State Bill 2886,https://www.capitol.hawaii.gov/session/measure_indiv.aspx?billtype=SB&billnumber=2886&year=2024
+Washington,WA,"7,705,281","7,812,880",2023-09-28,Partial,Jay Inslee,Democrat,,,,Executive Order/Legislation, ,
+Washington,WA,"7,705,281","7,812,880",2023-09-28,Partial,Jay Inslee,Democrat,,,,Media/Other News,Eradicating barriers to state employment is on Washington state’s agenda,https://www.washingtonpolicy.org/publications/detail/eradicating-barriers-to-state-employment-is-on-washington-states-agenda
+Washington,WA,"7,705,281","7,812,880",2023-09-28,Partial,Jay Inslee,Democrat,,,,State Gov. Website/Press Release, ,
+Idaho,ID,"1,839,106","1,964,726",2024-03-19,Partial,Brad Little,Republican,,,,Executive Order/Legislation,House Bill 433,https://legislature.idaho.gov/sessioninfo/2024/legislation/h0433/
 Idaho,ID,"1,839,106","1,964,726",2024-03-19,Partial,Brad Little,Republican,,,,Media/Other News,"House Bill 433 — Human resources, equivalency",https://idahofreedom.org/house-bill-433-human-resources-equivalency/
 Idaho,ID,"1,839,106","1,964,726",2024-03-19,Partial,Brad Little,Republican,,,,State Gov. Website/Press Release, ,
 New York,NY,"20,201,249","19,571,216",2024-05-06,Partial,Kathy Hochul,Democrat,,,,Executive Order/Legislation, ,
@@ -93,7 +95,7 @@ District of Columbia,DC,"689,545","678,972",,,,,,,,, ,
 Illinois,IL,"12,812,508","12,549,689",,,,,,,,, ,
 Indiana,IN,"6,785,528","6,862,199",,,,,,,,, ,
 Iowa,IA,"3,190,369","3,207,004",,Partial,Kim Reynolds,Republican,,,,Executive Order/Legislation, ,
-Iowa,IA,"3,190,369","3,207,004",,Partial,Kim Reynolds,Republican,,,,Media/Other News,Auditor Rob Sand calls for lowering degree requirements for some state jobs,https://iowacapitaldispatch.com/2024/04/30/auditor-rob-sand-calls-for-lowering-degree-requirements-for-some-state-jobs/
+Iowa,IA,"3,190,369","3,207,004",2024-04-30,Partial,Kim Reynolds,Republican,,,,Media/Other News,Auditor Rob Sand calls for lowering degree requirements for some state jobs,https://iowacapitaldispatch.com/2024/04/30/auditor-rob-sand-calls-for-lowering-degree-requirements-for-some-state-jobs/
 Iowa,IA,"3,190,369","3,207,004",,Partial,Kim Reynolds,Republican,,,,State Gov. Website/Press Release, ,
 Kansas,KS,"2,937,880","2,940,546",,,,,,,,, ,
 Kentucky,KY,"4,505,836","4,526,154",,,,,,,,, ,

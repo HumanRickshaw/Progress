@@ -2,8 +2,8 @@
 from dash import callback, ctx, Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate as PU
-from datetime import datetime
 from datetime import date
+from datetime import datetime as dt
 import pandas as pd
 from pandas.api.types import CategoricalDtype as CDT
 import plotly.express as px
@@ -70,8 +70,8 @@ def filterDF(df, lref, fill) :
 ######Constants######
 
 #Get today's date for States for cumulative.
-dt = date.today()
-today = dt.strftime('%B') + ' ' + str(dt.day) + ', ' + str(dt.year)
+tod = date.today()
+today = tod.strftime('%B') + ' ' + str(tod.day) + ', ' + str(tod.year)
 
 #Map FIPS
 fips_source = 'https://raw.githubusercontent.com/kjhealy/us-county/master/data/census/fips-by-state.csv'
@@ -119,7 +119,7 @@ links_href = [create_hlink('These States Don’t Require a Degree for a Governme
                            'https://archive.is/H39Kz')]                          
 
 #Last Modified.
-last_modified = 'This page was last modified by Rohan Lewis on ' + today + ' at ' + str(datetime.now().time())[0:8] + '.'
+last_modified = 'This page was last modified by Rohan Lewis on ' + today + ' at ' + str(dt.now().time())[0:8] + '.'
 
 #GitHubRepository
 git_repo = create_hlink('Git Hub Respository',
@@ -199,7 +199,7 @@ app.layout = dbc.Container([#Title
                                                            style = {'fontSize': 16,
                                                                     'textAlign': 'center'},
                                                            n_clicks = 0)],
-                                             width = 2),
+                                             width = 1),
                                      dbc.Col(width = 5)]),
                             
                             dbc.Row([html.Br()]),
@@ -240,10 +240,7 @@ app.layout = dbc.Container([#Title
                                      dbc.Col([dcc.RadioItems(id = 'fill_by1',
                                                              options = fill1,
                                                              value = fill1[0],
-                                                             style = {'fontSize': 18,
-                                                                      #'margin-left' : 'auto',
-                                                                      #'margin-right' : 'auto'
-                                                            })],
+                                                             style = {'fontSize': 18})],
                                              width = 2),
 
                                      dbc.Col(width = 3)]),
@@ -255,9 +252,7 @@ app.layout = dbc.Container([#Title
                                      dbc.Col([dcc.RadioItems(id = 'fill_by2',
                                                              options = [],
                                                              value = None,
-                                                             style = {'fontSize': 18,
-                                                                      'margin-left' : 'auto',
-                                                                      'margin-right' : 'auto'})],
+                                                             style = {'fontSize': 18})],
                                              width = 2),
                                     
                                     dbc.Col(width = 5)]),
@@ -269,8 +264,8 @@ app.layout = dbc.Container([#Title
                             
                             #External Link.
                             dbc.Row([dbc.Col(width = 2),
-                                     dbc.Col([html.Div(id = 'click_link',
-                                                       style = {'textAlign': 'center'})],
+                                     dbc.Col(html.Div(id = 'click_link',
+                                                       style = {'textAlign': 'center'}),
                                              width = 7)]),
  
                             dbc.Row([html.Br()]),
@@ -379,7 +374,10 @@ def insert(fill1) :
           Input('fill_by1', 'value'),
           Input('fill_by2', 'value'),
           Input('graph1', 'clickData'))
-def updateOutput(lref, fill1, fill2, clickData):    
+def updateOutput(lref, fill1, fill2, clickData):
+
+    print(lref)
+    print(fill)    
  
     #Drill down by date and link.
     dff = filterDF(dfs, lref, fill1)
@@ -438,14 +436,12 @@ def updateOutput(lref, fill1, fill2, clickData):
                              colorbar_ticktext = [label0, label1, label2, label3])
 
     #Create URL if the map gets clicked.
-    url = None
+    url = ''
     if ctx.triggered_id == 'graph1' :
  
-         url = [dbc.Row([html.A(clickData['points'][0]['customdata'][0], 
-                                href = clickData['points'][0]['customdata'][1],
-                                target = '_blank',
-                                style = {'fontSize': 18,
-                                         'textAlign': 'center'})])]
+         url = create_hlink(clickData['points'][0]['customdata'][0],
+                            clickData['points'][0]['customdata'][1],
+                            True)
     return(fig, url)
 
 # Run the app.
