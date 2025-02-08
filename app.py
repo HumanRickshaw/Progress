@@ -29,6 +29,8 @@ def filterDF(df, lref, fill) :
     '''
     Update the df to graph fill type and type of link.
     '''
+    dff = df[df['Type'] == lref]
+
     if fill == 'Political Party' :
         #Use Status and Party to create categories for fill.
         def createGroup(row) :
@@ -45,22 +47,22 @@ def filterDF(df, lref, fill) :
             elif row['Status'] == 'Deferred':
                 return 'Motion Deferred'
 
-        df['Group'] = df.apply(createGroup, axis=1)
-        df['Group'] = pd.Categorical(df['Group'],
-                                     categories = ['Democrat - Passed',
-                                                   'Republican - Passed',
-                                                   'Democrat - Partial',
-                                                   'Republican - Partial',
-                                                   'Motion Deferred'],
-                                     ordered = True)
-        df = df[df['Type'] == lref][['State', 'Abbr', 'Date', 'Status', 'Party', 'Title', 'Link', 'Group']]
-        df.sort_values(by = ['Group'], inplace = True)
+        dff['Group'] = dff.apply(createGroup, axis=1)
+        dff['Group'] = pd.Categorical(dff['Group'],
+                                      categories = ['Democrat - Passed',
+                                                    'Republican - Passed',
+                                                    'Democrat - Partial',
+                                                    'Republican - Partial',
+                                                    'Motion Deferred'],
+                                      ordered = True)
+        dff = dff[['State', 'Abbr', 'Date', 'Status', 'Party', 'Title', 'Link', 'Group']]
+        dff.sort_values(by = ['Group'], inplace = True)
     
     else :
-        df = df[df['Type'] == lref][['State', 'Abbr', 'Date', 'Status', 'Party', 'Title', 'Link', 'NumericData']]
-   
-    df['Title2'] = df['Title'].apply(lambda x: '<No ' + lref + ' Found>' if x == ' ' else x[0:50] + '...')
-    return(df)
+        dff = dff[['State', 'Abbr', 'Date', 'Status', 'Party', 'Title', 'Link', 'NumericData']]
+    
+    dff['Title2'] = dff['Title'].apply(lambda x: '<No ' + lref + ' Found>' if x == ' ' else x if len(x) < 53 else x[0:50] + '...')
+    return(dff)
 ######End Helper Functions######
 
 
@@ -85,7 +87,7 @@ about_the_app = [dbc.Row('I often question how societies and humanity progress. 
                  html.Br(),
                  dbc.Row('One way to do this, is to seek out progress happening somewhat less in the spotlight.  And because it is bipartisan, it happens fairly smoothly and quickly.'),
                  html.Br(),
-                 dbc.Row('I took it upon myself to dig deep, acquire dates, government documents, news articles, political information, population numbers...and make a map.  Makinginteractive, choropleth mapsis one of my favorite analysis and visualization tasks.  One has the opportunity to create a puzzle, piece by piece, without knowing the final picture. Simply let the story unfold.'),
+                 dbc.Row('I took it upon myself to dig deep, acquire dates, government documents, news articles, political information, population numbers...and make a map.  Making interactive, choropleth maps is one of my favorite analysis and visualization tasks.  One has the opportunity to create a puzzle, piece by piece, without knowing the final picture.'),
                  html.Br(),
                  dbc.Row('Some information of relevance:'),
                  dbc.Row('* If the state is shaded, it will have at least one of the three links.  Some states have far more active posting on their goverment websites, as well as news reporting.'),
@@ -97,13 +99,14 @@ about_the_app = [dbc.Row('I often question how societies and humanity progress. 
 
 #Links.
 links_title = [create_hlink('Best Colleges :',
-                            'https://www.bestcolleges.com/news/these-states-dont-require-degree-for-a-government-job/'),
+                            'https://www.bestcolleges.com/'),
                create_hlink('CBS :',
-                            'https://www.cbsnews.com/news/jobs-college-degree-requirement/'),
+                            'https://www.cbsnews.com/'),
                create_hlink('National Conference of State Legislatures :',
-                            'https://www.ncsl.org/education/states-consider-elimination-of-degree-requirements'),
+                            'https://www.ncsl.org/education/'),
                create_hlink('National Govenor’s Association :',
-                            'https://www.nga.org/news/commentary/governors-leading-on-skills-based-hiring-to-open-opportunity-pathways/'),
+                            'https://www.nga.org/'),
+               html.Br(),
                create_hlink('New York Times :',
                             'https://archive.is/H39Kz')]
 
@@ -115,6 +118,8 @@ links_href = [create_hlink('These States Don’t Require a Degree for a Governme
                            'https://www.ncsl.org/education/states-consider-elimination-of-degree-requirements'), 
               create_hlink('Governors Leading on Skills-Based Hiring to Open Opportunity Pathways',
                            'https://www.nga.org/news/commentary/governors-leading-on-skills-based-hiring-to-open-opportunity-pathways/'), 
+              create_hlink('Empowering Progress: Harnessing Skills-Based Strategies to Drive Public Sector Excellence',
+                           'https://www.nga.org/publications/empowering-progress-harnessing-skills-based-strategies-to-drive-public-sector-excellence/'), 
               create_hlink('A 4-Year Degree Isn’t Quite the Job Requirement It Used to Be',
                            'https://archive.is/H39Kz')]                          
 
@@ -126,11 +131,11 @@ git_repo = create_hlink('Git Hub Respository',
                         'https://github.com/HumanRickshaw/Progress')
 
 #Fill options.
-fill1 = ['Political Party',
-         'Date of Legislation']
+fill_list1 = ['Political Party',
+              'Date of Legislation']
 
-fill2 = ['Complete Legislation',
-         'Complete & Partial']
+fill_list2 = ['Complete Legislation',
+              'Complete & Partial']
 
 media = ['State Gov. Website/Press Release',
          'Executive Order/Legislation',
@@ -238,8 +243,8 @@ app.layout = dbc.Container([#Title
                                              width = 1),
 
                                      dbc.Col([dcc.RadioItems(id = 'fill_by1',
-                                                             options = fill1,
-                                                             value = fill1[0],
+                                                             options = fill_list1,
+                                                             value = fill_list1[0],
                                                              style = {'fontSize': 18})],
                                              width = 2),
 
@@ -247,6 +252,7 @@ app.layout = dbc.Container([#Title
                             #######End Interactive Row######
 
                             #######Conditional Row######
+                            dbc.Row([html.Br()]),
                             dbc.Row([dbc.Col(width = 7),
                                      
                                      dbc.Col([dcc.RadioItems(id = 'fill_by2',
@@ -305,7 +311,7 @@ app.layout = dbc.Container([#Title
                                                                   dbc.Col(links_href,
                                                                           style = {'fontSize': 18,
                                                                                    'textAlign': 'left'},
-                                                                          width = 5)])],
+                                                                          width = 6)])],
                                              style = {'fontSize': 18,
                                                       'display': 'none'})]),
 
@@ -359,9 +365,25 @@ def show(clicks) :
           Input('fill_by1', 'value'))
 def insert(fill1) :
     if fill1 == 'Date of Legislation' :
-        return(fill2, fill2[0])
+        return(fill_list2, fill_list2[0])
     else :    
         return([], None)
+
+
+
+
+
+#If Date of Legislation, link option should only be 'Executive Order/Legislation'
+@callback(Output('linkref', 'options'),
+          Output('linkref', 'value'),
+          Input('linkref', 'value'),
+          Input('fill_by1', 'value'))
+def updateLink(lref, fill1) :
+
+    if fill1 == fill_list1[1] :
+        return([media[1]], media[1])
+    else :
+        return(media, lref)
 
 
 
@@ -376,14 +398,11 @@ def insert(fill1) :
           Input('graph1', 'clickData'))
 def updateOutput(lref, fill1, fill2, clickData):
 
-    print(lref)
-    print(fill)    
- 
-    #Drill down by date and link.
-    dff = filterDF(dfs, lref, fill1)
-
     if fill1 == 'Political Party' :
-       
+
+        #Drill down by date and link.
+        dff = filterDF(dfs, lref, fill1)
+
         fig = px.choropleth(data_frame = dff,
                             locations = 'Abbr',
                             locationmode = 'USA-states',
@@ -407,10 +426,14 @@ def updateOutput(lref, fill1, fill2, clickData):
                           geo_scope = 'usa',
                           margin = {'l' : 0, 't' : 0, 'r' : 0, 'b' : 0}) 
 
+    #Date of Legislation.
     else :
+        #Drill down by date and link.
         dff = filterDF(dfs, lref, fill1)
+
         if fill2 == 'Complete Legislation' :
-            dff = dff[dff['Status'] == 'Yes']
+            dff = dff[dff['Status'] == 'Yes'] # 
+
         else :
             dff = dff[dff['Status'] != 'Deferred']
 
@@ -434,6 +457,7 @@ def updateOutput(lref, fill1, fill2, clickData):
                              colorbar_tickfont_size = 16,
                              colorbar_tickvals = [0, max_val/3, 2*max_val/3, max_val],
                              colorbar_ticktext = [label0, label1, label2, label3])
+        print(label3, max_val)
 
     #Create URL if the map gets clicked.
     url = ''
